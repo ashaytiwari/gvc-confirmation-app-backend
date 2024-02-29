@@ -22,7 +22,7 @@ const validateAddUpdateUser = [
     .custom(async (value) => {
       const user = await User.findOne({ username: value });
       if (user) {
-        throw new Error(messages.userWithThisEmailAlreadyExists);
+        throw new Error(messages.userWithThisUserNameAlreadyExists);
       }
     }),
 

@@ -5,7 +5,7 @@ import { version } from '../../package.json';
 
 // Specify the base directories for routes and component schemas
 const routesBaseDir = 'src/routes';
-const componentSchemasBaseDir = 'src/swagger-component-schemas';
+const componentSchemasBaseDir = 'src/swaggerSchemas';
 
 // Create a function to get all files recursively from a directory
 const getAllFiles = (baseDir: string, pattern: string): string[] => {
@@ -24,7 +24,7 @@ export function swaggerOptionsConfig(port: string) {
       },
       servers: [
         {
-          url: `http://localhost:${port}`
+          url: `http://localhost:${port}/api`
         }
       ],
       components: {
