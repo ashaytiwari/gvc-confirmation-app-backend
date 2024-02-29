@@ -5,6 +5,8 @@ import path from 'path';
 
 import { headerConfig } from './src/config/header.config';
 
+import router from './src/routes';
+
 import { createLogger, handleLogs } from './src/utilities/logger';
 import connectDB from './src/utilities/db.connection';
 import { swaggerDocs } from './src/utilities/swaggerDocs';
@@ -33,7 +35,7 @@ app.listen(port, async () => {
 
   swaggerDocs(app, port!);
 
-  // app.use(API_PREFIX, router);
+  app.use(API_PREFIX, router);
   app.use(routeNotFoundController);
 
 });
