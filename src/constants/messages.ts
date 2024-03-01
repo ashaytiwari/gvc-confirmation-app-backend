@@ -10,7 +10,11 @@ const messages = {
   userCreatedSuccessfully: 'User created successfully',
 
   tokenIsNotAvailable: 'Token is not available',
-  invalidToken: 'Invalid Token'
+  invalidToken: 'Invalid Token',
+
+  userWithThisUsernameDoesNotExists: 'User with this username does not exists',
+  invalidPassword: 'Invalid Password',
+  successfullyLoggedIn: 'Logged in successfully'
 };
 
 export default messages;

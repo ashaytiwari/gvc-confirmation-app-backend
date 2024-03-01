@@ -1,8 +1,9 @@
 import Router from 'express';
 
-import { addUpdateUserController } from '../controllers/authentication.controller';
+import { addUpdateUserController, adminLoginController } from '../controllers/authentication.controller';
 
-import validateAddUpdateUser from '../validators/addUpdateUser.validator';
+import validateAddUpdateUser from '../validators/authentication/addUpdateUser.validator';
+import validateAdminLogin from '../validators/authentication/adminLogin.validator';
 
 const router = Router();
 
@@ -23,5 +24,7 @@ const router = Router();
  *         description: Success
  */
 router.post('/addUpdateUser', validateAddUpdateUser, addUpdateUserController);
+
+router.post('/adminLogin', validateAdminLogin, adminLoginController);
 
 export default router;

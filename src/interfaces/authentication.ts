@@ -11,3 +11,8 @@ export interface ITokenDataModel {
   email: string,
   token?: string
 }
+
+export interface IAdminLoginParamsModel {
+  username: string,
+  password: string
+}

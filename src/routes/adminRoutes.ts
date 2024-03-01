@@ -2,7 +2,7 @@ import Router from 'express';
 
 import { addUpdateUserController } from '../controllers/authentication.controller';
 
-import validateAddUpdateUser from '../validators/addUpdateUser.validator';
+import validateAddUpdateUser from '../validators/authentication/addUpdateUser.validator';
 
 const router = Router();
 

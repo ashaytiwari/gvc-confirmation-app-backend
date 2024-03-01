@@ -1,8 +1,8 @@
 import { body } from "express-validator";
 
-import messages from "../constants/messages";
+import messages from "../../constants/messages";
 
-import { User } from "../models/user.model";
+import { User } from "../../models/user.model";
 
 const validateAddUpdateUser = [
 
