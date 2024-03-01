@@ -4,7 +4,7 @@ import { validationResult } from "express-validator";
 import { User } from "../models/user.model";
 
 import messages from "../constants/messages";
-import { IAddUpdateUserParamsModel } from "../interfaces/admin";
+import { IAddUpdateUserParamsModel } from "../interfaces/authentication";
 
 import { responseHandlerObject } from "../utilities/responseHandler";
 import { handleValidation, hashData } from "../utilities";

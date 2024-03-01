@@ -1,7 +1,7 @@
 import { Router } from "express";
 import bodyParser from "body-parser";
 
-import adminRoutes from './adminRoutes';
+import authenticationRoutes from './authenticationRoutes';
 
 const router = Router();
 
@@ -11,7 +11,7 @@ router.use(bodyParser.json());
 const routes = [
   {
     path: '/',
-    route: adminRoutes
+    route: authenticationRoutes
   }
 ];
 
