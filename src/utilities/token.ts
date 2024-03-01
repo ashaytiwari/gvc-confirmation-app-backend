@@ -87,8 +87,6 @@ export async function checkTokenInUserCollection(decodedToken: ITokenDataModel) 
 
       const { _id, token } = decodedToken;
 
-      console.log(decodedToken);
-
       const user = await User.findOne({ _id, 'tokenData.tokenId': token });
 
       if (!user) {

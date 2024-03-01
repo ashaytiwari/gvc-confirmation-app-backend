@@ -5,6 +5,8 @@ import { addUpdateUserController, adminLoginController } from '../controllers/au
 import validateAddUpdateUser from '../validators/authentication/addUpdateUser.validator';
 import validateAdminLogin from '../validators/authentication/adminLogin.validator';
 
+import { verifyToken } from '../utilities/token';
+
 const router = Router();
 
 /**
@@ -23,7 +25,7 @@ const router = Router();
  *       200:
  *         description: Success
  */
-router.post('/addUpdateUser', validateAddUpdateUser, addUpdateUserController);
+router.post('/addUpdateUser', verifyToken, validateAddUpdateUser, addUpdateUserController);
 
 router.post('/adminLogin', validateAdminLogin, adminLoginController);
 
