@@ -16,3 +16,9 @@ export interface IAdminLoginParamsModel {
   username: string,
   password: string
 }
+
+export interface IChangePasswordParamsModel {
+  oldPassword: string,
+  newPassword: string,
+  tokenData?: ITokenDataModel
+}

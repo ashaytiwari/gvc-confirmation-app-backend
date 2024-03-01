@@ -41,3 +41,21 @@
  *          type: string
  *          example: 123456
  */
+
+/**
+ * @swagger
+ * components: 
+ *  schemas:
+ *    ChangePassword:
+ *      type: object
+ *      required:
+ *        - oldPassword
+ *        - newPassword
+ *      properties:
+ *        oldPassword:    
+ *          type: string
+ *          example: test123
+ *        newPassword: 
+ *          type: string
+ *          example: test456
+ */

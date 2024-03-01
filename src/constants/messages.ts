@@ -7,17 +7,18 @@ const messages = {
   userWithThisUserNameAlreadyExists: 'User with this username already exists',
   passwordMustBeAtleast6Char: 'Password must be atleast 6 character long',
 
-  userCreatedSuccessfully: 'User created successfully',
-
   tokenIsNotAvailable: 'Token is not available',
   invalidToken: 'Invalid Token',
 
   userWithThisUsernameDoesNotExists: 'User with this username does not exists',
   invalidPassword: 'Invalid Password',
   successfullyLoggedIn: 'Logged in successfully',
+  userNotFound: 'User not found',
 
+  userCreatedSuccessfully: 'User created successfully',
   unableToLogout: 'Unable to logout',
-  logoutSuccessfully: 'Logout Successfully'
+  logoutSuccessfully: 'Logout Successfully',
+  passwordChangedSuccessfully: 'Password changed successfully'
 };
 
 export default messages;

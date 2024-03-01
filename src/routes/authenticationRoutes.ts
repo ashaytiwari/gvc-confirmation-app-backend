@@ -1,9 +1,15 @@
 import Router from 'express';
 
-import { addUpdateUserController, adminLoginController, logoutController } from '../controllers/authentication.controller';
+import {
+  addUpdateUserController,
+  adminLoginController,
+  changePasswordController,
+  logoutController
+} from '../controllers/authentication.controller';
 
 import validateAddUpdateUser from '../validators/authentication/addUpdateUser.validator';
 import validateAdminLogin from '../validators/authentication/adminLogin.validator';
+import validateChangePassword from '../validators/authentication/changePassword.validator';
 
 import { verifyToken } from '../utilities/token';
 
@@ -44,6 +50,24 @@ router.post('/adminLogin', validateAdminLogin, adminLoginController);
  *         description: Success
  */
 router.post('/addUpdateUser', verifyToken, validateAddUpdateUser, addUpdateUserController);
+
+/**
+ * @swagger
+ * /changePassword:
+ *   post:
+ *     summary: Change Password Service
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *          schema: 
+ *            $ref: '#/components/schemas/ChangePassword'
+ *     responses:
+ *       200:
+ *         description: Success
+ */
+router.post('/changePassword', verifyToken, validateChangePassword, changePasswordController);
 
 /**
  * @swagger
