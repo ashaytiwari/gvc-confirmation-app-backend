@@ -4,3 +4,10 @@ export interface IAddUpdateUserParamsModel {
   password: string,
   role: string
 }
+
+export interface ITokenDataModel {
+  _id: any,
+  username: string,
+  email: string,
+  token?: string
+}
