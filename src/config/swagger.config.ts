@@ -18,7 +18,7 @@ export function swaggerOptionsConfig(port: string) {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "REST api docs",
+        title: "RESTful API for GVC Confirmation App",
         description: 'GVC Confirmation Services Documentation',
         version
       },

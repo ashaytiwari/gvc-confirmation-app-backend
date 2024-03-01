@@ -23,3 +23,21 @@
  *          type: string
  *          example: ADMIN
  */
+
+/**
+ * @swagger
+ * components: 
+ *  schemas:
+ *    AdminLogin:
+ *      type: object
+ *      required:
+ *        - username
+ *        - password
+ *      properties:
+ *        username:
+ *          type: string
+ *          example: admin@gvc
+ *        password:
+ *          type: string
+ *          example: 123456
+ */

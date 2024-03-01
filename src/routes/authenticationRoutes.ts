@@ -11,6 +11,24 @@ const router = Router();
 
 /**
  * @swagger
+ * /adminLogin:
+ *   post:
+ *     summary: Admin Login Service
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *          schema: 
+ *            $ref: '#/components/schemas/AdminLogin'
+ *     responses:
+ *       200:
+ *         description: Success
+ */
+router.post('/adminLogin', validateAdminLogin, adminLoginController);
+
+/**
+ * @swagger
  * /addUpdateUser:
  *   post:
  *     summary: Add Update User Service
@@ -26,7 +44,5 @@ const router = Router();
  *         description: Success
  */
 router.post('/addUpdateUser', verifyToken, validateAddUpdateUser, addUpdateUserController);
-
-router.post('/adminLogin', validateAdminLogin, adminLoginController);
 
 export default router;
