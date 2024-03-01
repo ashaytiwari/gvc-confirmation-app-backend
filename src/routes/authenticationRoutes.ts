@@ -1,6 +1,6 @@
 import Router from 'express';
 
-import { addUpdateUserController, adminLoginController } from '../controllers/authentication.controller';
+import { addUpdateUserController, adminLoginController, logoutController } from '../controllers/authentication.controller';
 
 import validateAddUpdateUser from '../validators/authentication/addUpdateUser.validator';
 import validateAdminLogin from '../validators/authentication/adminLogin.validator';
@@ -44,5 +44,17 @@ router.post('/adminLogin', validateAdminLogin, adminLoginController);
  *         description: Success
  */
 router.post('/addUpdateUser', verifyToken, validateAddUpdateUser, addUpdateUserController);
+
+/**
+ * @swagger
+ * /logout:
+ *   post:
+ *     summary: Logout Service
+ *     tags: [Authentication]
+ *     responses:
+ *       200:
+ *         description: Success
+ */
+router.post('/logout', verifyToken, logoutController);
 
 export default router;

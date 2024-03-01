@@ -82,3 +82,24 @@ export async function adminLoginController(req: Request, res: Response) {
     return responseHandlerObject.serverError(res, error);
   }
 }
+
+export async function logoutController(req: Request, res: Response) {
+  try {
+
+    const body = req.body;
+
+    const user = await User.findOne({ _id: body.tokenData._id });
+
+    if (!user) {
+      return responseHandlerObject.forbidden(res, messages.unableToLogout);
+    }
+
+    user.tokenData = undefined;
+    await user.save();
+
+    return responseHandlerObject.success(res, messages.logoutSuccessfully, null);
+
+  } catch (error: any) {
+    return responseHandlerObject.serverError(res, error);
+  }
+}

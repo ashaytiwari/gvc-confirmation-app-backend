@@ -14,7 +14,10 @@ const messages = {
 
   userWithThisUsernameDoesNotExists: 'User with this username does not exists',
   invalidPassword: 'Invalid Password',
-  successfullyLoggedIn: 'Logged in successfully'
+  successfullyLoggedIn: 'Logged in successfully',
+
+  unableToLogout: 'Unable to logout',
+  logoutSuccessfully: 'Logout Successfully'
 };
 
 export default messages;
