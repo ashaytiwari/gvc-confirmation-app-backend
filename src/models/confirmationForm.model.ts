@@ -47,4 +47,4 @@ const confirmationFormSchema = new Schema(
   }
 );
 
-export const ConfirmationForm = mongoose.model('confirmationModel', confirmationFormSchema);
+export const ConfirmationForm = mongoose.model('confirmationForm', confirmationFormSchema);

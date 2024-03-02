@@ -1,5 +1,6 @@
 const messages = {
   apiEndpointNotAvailable: 'Api endpoint not available!',
+  dataSavedSuccessfully: 'Data saved successfully',
 
   required: 'Required',
   invalidEmail: 'Invalid Email',
@@ -18,7 +19,10 @@ const messages = {
   userCreatedSuccessfully: 'User created successfully',
   unableToLogout: 'Unable to logout',
   logoutSuccessfully: 'Logout Successfully',
-  passwordChangedSuccessfully: 'Password changed successfully'
+  passwordChangedSuccessfully: 'Password changed successfully',
+
+  confirmationFormDoesNotExist: 'Confirmation form does not exist for the given id',
+  confirmationCantBeCreateForPastDate: 'Confirmation Form can not be created for past date'
 };
 
 export default messages;

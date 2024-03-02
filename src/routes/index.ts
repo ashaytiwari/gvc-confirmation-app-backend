@@ -2,6 +2,7 @@ import { Router } from "express";
 import bodyParser from "body-parser";
 
 import authenticationRoutes from './authenticationRoutes';
+import adminRoutes from './adminRoutes';
 
 const router = Router();
 
@@ -12,7 +13,11 @@ const routes = [
   {
     path: '/',
     route: authenticationRoutes
-  }
+  },
+  {
+    path: '/',
+    route: adminRoutes
+  },
 ];
 
 routes.forEach((routeItem) => {

@@ -24,3 +24,11 @@ export async function hashData(data: any) {
   return hashedData;
 
 }
+
+export function isPastDate(dateString: any) {
+  const date = new Date(dateString);
+
+  const today = new Date();
+
+  return date < today;
+}

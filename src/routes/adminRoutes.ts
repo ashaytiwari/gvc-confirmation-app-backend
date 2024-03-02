@@ -1,27 +1,13 @@
 import Router from 'express';
 
-import { addUpdateUserController } from '../controllers/authentication.controller';
+import validateUpdateConfirmationForm from '../validators/admin/updateConfirmationForm.validator';
 
-import validateAddUpdateUser from '../validators/authentication/addUpdateUser.validator';
+import { updateConfirmationFormController } from '../controllers/admin.controller';
+
+import { verifyToken } from '../utilities/token';
 
 const router = Router();
 
-/**
- * @swagger
- * /addUpdateUser:
- *   post:
- *     summary: Add Update User Service
- *     tags: [Authentication]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *          schema: 
- *            $ref: '#/components/schemas/AddUpdateUser'
- *     responses:
- *       200:
- *         description: Success
- */
-router.post('/addUpdateUser', validateAddUpdateUser, addUpdateUserController);
+router.post('/updateConfirmationForm', verifyToken, validateUpdateConfirmationForm, updateConfirmationFormController);
 
 export default router;
