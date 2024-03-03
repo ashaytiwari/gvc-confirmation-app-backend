@@ -24,7 +24,8 @@ const messages = {
   confirmationFormDoesNotExist: 'Confirmation form does not exist for the given id',
   confirmationCantBeCreateForPastDate: 'Confirmation Form can not be created for past date',
   confirmationUpdateFailed: 'Confirmation update failed',
-  confirmationSubmittedSuccessfully: 'Confirmation Submitted Successfully'
+  confirmationSubmittedSuccessfully: 'Confirmation Submitted Successfully',
+  confirmationFormNotAcceptingSubmissions: 'Attention: The confirmation form is officially closed for submissions'
 };
 
 export default messages;

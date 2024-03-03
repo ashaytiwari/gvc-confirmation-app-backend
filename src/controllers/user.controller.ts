@@ -9,7 +9,7 @@ import userRoles from "../constants/userRoles";
 import { IUpdateUserConfirmationParamsModel, IUserConfirmationsModel } from "../interfaces/user";
 
 import { responseHandlerObject } from "../utilities/responseHandler";
-import { convertStringifiedIdIntoObjectId, handleValidation } from "../utilities";
+import { convertStringifiedIdIntoObjectId, handleValidation, isPastDate } from "../utilities";
 
 export async function updateUserConfirmationController(req: Request, res: Response) {
   try {
@@ -26,6 +26,10 @@ export async function updateUserConfirmationController(req: Request, res: Respon
 
     if (!confirmationForm) {
       return responseHandlerObject.forbidden(res, messages.confirmationFormDoesNotExist);
+    }
+
+    if (isPastDate(confirmationForm.date) === true) {
+      return responseHandlerObject.forbidden(res, messages.confirmationFormNotAcceptingSubmissions);
     }
 
     if (body._id === 0) {
