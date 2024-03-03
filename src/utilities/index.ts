@@ -1,5 +1,6 @@
 import { Response } from "express";
 import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
 
 import { responseHandlerObject } from "./responseHandler";
 import statusMessages from "../constants/statusMessages";
@@ -31,4 +32,8 @@ export function isPastDate(dateString: any) {
   const today = new Date();
 
   return date < today;
+}
+
+export function convertStringifiedIdIntoObjectId(stringId: any) {
+  return new mongoose.Types.ObjectId(stringId);
 }

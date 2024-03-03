@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 
 import authenticationRoutes from './authenticationRoutes';
 import adminRoutes from './adminRoutes';
+import userRoutes from './userRoutes';
 
 const router = Router();
 
@@ -17,6 +18,10 @@ const routes = [
   {
     path: '/',
     route: adminRoutes
+  },
+  {
+    path: '/',
+    route: userRoutes
   },
 ];
 

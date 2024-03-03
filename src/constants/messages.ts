@@ -22,7 +22,9 @@ const messages = {
   passwordChangedSuccessfully: 'Password changed successfully',
 
   confirmationFormDoesNotExist: 'Confirmation form does not exist for the given id',
-  confirmationCantBeCreateForPastDate: 'Confirmation Form can not be created for past date'
+  confirmationCantBeCreateForPastDate: 'Confirmation Form can not be created for past date',
+  confirmationUpdateFailed: 'Confirmation update failed',
+  confirmationSubmittedSuccessfully: 'Confirmation Submitted Successfully'
 };
 
 export default messages;
