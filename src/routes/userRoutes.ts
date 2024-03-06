@@ -25,6 +25,22 @@ const router = Router();
  */
 router.post('/updateUserConfirmation', validateUpdateUserConfirmation, updateUserConfirmationController);
 
+/**
+ * @swagger
+ * /getUserConfirmations:
+ *   get:
+ *     summary: Get user confirmations by form id
+ *     tags: [User]
+ *     parameters:
+ *      - name: formId
+ *        in: query
+ *        required: true
+ *        schema: 
+ *          type: string
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.get('/getUserConfirmations', validateGetUserConfirmations, getUserConfirmationsController);
 
 export default router;
