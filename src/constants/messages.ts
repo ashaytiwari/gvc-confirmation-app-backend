@@ -1,6 +1,7 @@
 const messages = {
   apiEndpointNotAvailable: 'Api endpoint not available!',
   dataSavedSuccessfully: 'Data saved successfully',
+  success: 'Success',
 
   required: 'Required',
   invalidEmail: 'Invalid Email',

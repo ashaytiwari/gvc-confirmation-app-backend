@@ -101,3 +101,29 @@ async function editUserConfirmation(body: IUpdateUserConfirmationParamsModel, co
     }
   });
 }
+
+export async function getUserConfirmationsController(req: Request, res: Response) {
+  try {
+
+    const _validationResult = validationResult(req);
+
+    if (_validationResult.isEmpty() === false) {
+      return handleValidation(res, _validationResult);
+    }
+
+    const formId = req.query.formId;
+
+    const confirmationForm = await ConfirmationForm.findOne({ _id: formId });
+
+    if (!confirmationForm) {
+      return responseHandlerObject.forbidden(res, messages.confirmationFormDoesNotExist);
+    }
+
+    const confirmations = confirmationForm.confirmations;
+
+    return responseHandlerObject.success(res, messages.success, confirmations);
+
+  } catch (error) {
+    return responseHandlerObject.serverError(res, error);
+  }
+}

@@ -2,7 +2,8 @@ import Router from 'express';
 
 import validateUpdateUserConfirmation from '../validators/user/updateUserConfirmation.validator';
 
-import { updateUserConfirmationController } from '../controllers/user.controller';
+import { getUserConfirmationsController, updateUserConfirmationController } from '../controllers/user.controller';
+import validateGetUserConfirmations from '../validators/user/getUserConfirmations.validator';
 
 const router = Router();
 
@@ -23,5 +24,7 @@ const router = Router();
  *         description: Success
  */
 router.post('/updateUserConfirmation', validateUpdateUserConfirmation, updateUserConfirmationController);
+
+router.get('/getUserConfirmations', validateGetUserConfirmations, getUserConfirmationsController);
 
 export default router;
