@@ -8,3 +8,9 @@ export interface IUpdateConfirmationFormParamsModel {
   date: Date,
   tokenData?: ITokenDataModel
 }
+
+export interface IGetConfirmationFormQueryParamsModel {
+  title?: string,
+  page: number,
+  limit: number
+}

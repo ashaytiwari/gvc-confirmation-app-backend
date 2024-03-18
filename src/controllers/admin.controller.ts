@@ -5,7 +5,7 @@ import { ConfirmationForm } from "../models/confirmationForm.model";
 
 import messages from "../constants/messages";
 
-import { IUpdateConfirmationFormParamsModel } from "../interfaces/admin";
+import { IGetConfirmationFormQueryParamsModel, IUpdateConfirmationFormParamsModel } from "../interfaces/admin";
 
 import { responseHandlerObject } from "../utilities/responseHandler";
 import { handleValidation } from "../utilities";
@@ -77,4 +77,44 @@ async function editConfirmationForm(body: IUpdateConfirmationFormParamsModel) {
       reject(error);
     }
   });
+}
+
+export async function getConfirmationFormsController(req: Request, res: Response) {
+  try {
+
+    const _validationResult = validationResult(req);
+
+    if (_validationResult.isEmpty() === false) {
+      return handleValidation(res, _validationResult);
+    }
+
+    const queryParams = req.query as unknown as IGetConfirmationFormQueryParamsModel;
+    const { title, page, limit } = queryParams;
+
+    let query = {};
+
+    if (typeof title !== 'undefined') {
+      query = {
+        title: { $regex: new RegExp(title, "i") }
+      };
+    }
+
+    const confirmationForms = await ConfirmationForm.find(query, { confirmations: 0, __v: 0 })
+      .limit(limit)
+      .skip((page - 1) * limit)
+      .sort({ createdAt: -1 });
+
+    const totalForms = await ConfirmationForm.countDocuments();
+
+    const response = {
+      confirmationForms,
+      currentPage: +page,
+      totalPages: Math.ceil(totalForms / limit)
+    };
+
+    return responseHandlerObject.success(res, messages.success, response);
+
+  } catch (error) {
+    return responseHandlerObject.serverError(res, error);
+  }
 }
