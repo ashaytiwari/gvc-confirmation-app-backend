@@ -127,3 +127,27 @@ export async function getUserConfirmationsController(req: Request, res: Response
     return responseHandlerObject.serverError(res, error);
   }
 }
+
+export async function getConfirmationFormDetailsController(req: Request, res: Response) {
+  try {
+
+    const _validationResult = validationResult(req);
+
+    if (_validationResult.isEmpty() === false) {
+      return handleValidation(res, _validationResult);
+    }
+
+    const formId = req.query.formId;
+
+    const confirmationForm = await ConfirmationForm.findOne({ _id: formId }, { confirmations: 0 });
+
+    if (!confirmationForm) {
+      return responseHandlerObject.forbidden(res, messages.confirmationFormDoesNotExist);
+    }
+
+    return responseHandlerObject.success(res, messages.success, confirmationForm);
+
+  } catch (error) {
+    return responseHandlerObject.serverError(res, error);
+  }
+}
