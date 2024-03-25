@@ -32,7 +32,7 @@ export async function updateUserConfirmationController(req: Request, res: Respon
       return responseHandlerObject.forbidden(res, messages.confirmationFormNotAcceptingSubmissions);
     }
 
-    if (body._id === 0) {
+    if (+body._id === 0) {
       await addUserConfirmation(body, confirmationForm);
     } else {
 
