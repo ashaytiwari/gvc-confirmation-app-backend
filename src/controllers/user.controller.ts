@@ -119,9 +119,7 @@ export async function getUserConfirmationsController(req: Request, res: Response
       return responseHandlerObject.forbidden(res, messages.confirmationFormDoesNotExist);
     }
 
-    const confirmations = confirmationForm.confirmations;
-
-    return responseHandlerObject.success(res, messages.success, confirmations);
+    return responseHandlerObject.success(res, messages.success, confirmationForm);
 
   } catch (error) {
     return responseHandlerObject.serverError(res, error);
