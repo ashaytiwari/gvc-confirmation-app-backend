@@ -12,7 +12,9 @@ const getAllFiles = (baseDir: string, pattern: string): string[] => {
   return glob.sync(`${baseDir}/**/${pattern}`);
 };
 
-export function swaggerOptionsConfig(port: string) {
+export function swaggerOptionsConfig(port: string, url: string) {
+
+  let _url = `${url}/api`;
 
   const options: swaggerJSDoc.Options = {
     definition: {
@@ -24,7 +26,7 @@ export function swaggerOptionsConfig(port: string) {
       },
       servers: [
         {
-          url: `http://localhost:${port}/api`
+          url: _url
         }
       ],
       components: {
